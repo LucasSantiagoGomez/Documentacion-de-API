@@ -1,0 +1,67 @@
+<form  id="register-form">
+	<div >Registro</div>
+	<form >
+		<div >
+			<label >Nombre</label>
+			<input
+				type="text"
+				name="first_name"
+				id="first_name"
+				placeholder="Nombre"
+			/>
+		</div>
+		<div >
+			<label  >Apellido</label>
+			<input
+				type="text"
+				name="last_name"
+				id="last_name"
+				placeholder="Apellido"
+			/>
+		</div>
+		<div >
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email" placeholder="Email" />
+		</div>
+		<div >
+			<label for="age">Edad</label>
+			<input type="text" name="age" id="age" placeholder="Edad" />
+		</div>
+		
+		<div >
+			<label for="role">Rol</label>
+			<div >
+				<div >
+					<input type="radio" name="role" value="user" checked />
+					<label for="role">Usuario</label>
+				</div>
+				<div >
+					<input type="radio" name="role" value="admin" />
+					<label for="role">Admin</label>
+				</div>
+			</div>
+		</div>
+		<div >
+			<label for="password">Contraseña</label>
+			<input
+				type="password"
+				name="password"
+				id="password"
+				placeholder="Contraseña"
+			/>
+		</div>
+	
+	<div >
+		<p>¿Ya tiene una cuenta? <a href="/">Ingresar</a></p>
+	</div>
+</div>
+<div >
+	<div >
+		<button
+			class="btn add-btn"
+			type="submit"
+			form="register-form"
+		>Registrar</button>
+	</div>
+</form>
+<script src="/js/register.js"></script>

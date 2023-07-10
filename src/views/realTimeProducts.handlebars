@@ -1,0 +1,167 @@
+<div class="app" id="custom-target">
+	<div >
+		<form
+			action="/api/products"
+			id="addProductForm"
+			method="POST"
+			enctype="multipart/form-data"
+		>
+			<div >Nuevo producto</div>
+			<div >Agrega un nuevo producto a la lista</div>
+			<div >
+				<input
+					name="title"
+					id="title"
+					class="input"
+					type="text"
+					placeholder=" "
+					value=""
+				/>
+				<div class="cut"></div>
+				<label for="title" class="placeholder">Producto</label>
+			</div>
+			<div >
+				<input
+					name="description"
+					id="description"
+					class="input"
+					type="text"
+					placeholder=" "
+					value=""
+				/>
+				<div ></div>
+				<label for="description" class="placeholder">Descripción</label>
+			</div>
+			<div >
+				<input
+					name="category"
+					id="category"
+					class="input"
+					type="text"
+					placeholder=" "
+					value=""
+				/>
+				<div ></div>
+				<label for="category" class="placeholder">Categoría</label>
+			</div>
+			<div >
+				<input
+					name="code"
+					id="code"
+					class="input"
+					type="text"
+					placeholder=" "
+					value=""
+				/>
+				<div class="cut cut-middle"></div>
+				<label for="code" class="placeholder">Código</label>
+			</div>
+			<div >
+				<input
+					name="price"
+					id="price"
+					class="input"
+					type="text"
+					placeholder=" "
+					value=""
+				/>
+				<div ></div>
+				<label for="price" class="placeholder">Precio</label>
+			</div>
+			<div >
+				<input
+					name="stock"
+					id="stock"
+					class="input"
+					type="text"
+					placeholder=" "
+					value=""
+				/>
+				<div ></div>
+				<label for="stock" class="placeholder">Stock</label>
+			</div>
+			<div >
+				<div >
+					<input
+						
+						type="file"
+						name="thumbnails"
+						id="thumbnails"
+						multiple
+					/>
+					<div ></div>
+					<label
+						for="thumbnails"
+						class="placeholder thumbnails-placeholder"
+					>Imágenes</label>
+					<div class="file-upload__label input"></div>
+					<button class="browse-btn btn" type="button">Buscar</button>
+				</div>
+			</div>
+			<button
+				type="submit"
+				form="addProductForm"
+				class="submit"
+				name="submit"
+			>Agregar</button>
+		</form>
+	</div>
+	<div ></div>
+	<div >
+		<div class="list-header">
+			<div>Lista de productos</div>
+			<div >Nuevo</div>
+		</div>
+		<div >
+			<div >
+				{{#each products}}
+					<div id={{this._id}}>
+						<div >
+							<div >
+								<div >
+									{{this.title}}
+								</div>
+								<div >
+									Cod:
+									{{this.code}}
+								</div>
+							</div>
+							<div >
+								<div >
+									{{this.description}}
+								</div>
+							</div>
+							<div class="third row">
+								<div class="item-price">
+									$
+									{{this.price}}
+								</div>
+								<div class="item-stock">
+									Stock:
+									{{this.stock}}
+									unidades
+								</div>
+                
+							</div>
+						</div>
+						<div >
+							{{#each this.thumbnails}}
+								<div >
+									<img src="{{this}}" alt="" />
+								</div>
+							{{else}}
+								<div >Sin imágenes</div>
+							{{/each}}
+						
+          <br>
+          
+				{{else}}
+					<div >No products loaded</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

@@ -1,0 +1,36 @@
+<div>
+  <div class="row">
+    <div class="col-sm-6">
+      {{#each products}}
+        <div class="card" style="width: 18rem;">
+          <img src="{{this.thumbnails.[0]}}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <a href="/product/{{this._id}}"><h5
+                class="card-title"
+              >{{this.title}}</h5>
+            </a>
+            <p class="card-text">${{this.price}}</p>
+            <a
+              id="{{this._id}}"
+              name="addProductBtn"
+              onclick="addToCart(this.id)"
+              class="btn btn-primary"
+            >Add to cart</a>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  {{#if hasPrevPage}}
+    <a href="{{prevLink}}"><button class="btn btn-primary">Anterior</button></a>
+  {{/if}}
+
+  <p>{{page}} of {{totalPages}}</p>
+
+  {{#if hasNextPage}}
+    <a href="{{nextLink}}"><button
+        class="btn btn-primary"
+      >Siguiente</button></a>
+  {{/if}}
+</div>
+<script src="/js/products.js"></script>

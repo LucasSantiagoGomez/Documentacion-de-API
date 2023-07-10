@@ -1,0 +1,50 @@
+<div class="app">
+	<div ></div>
+	<div  id="{{cartId}}">
+		<div >
+			<div >Carrito</div>
+		</div>
+		<div >
+			{{#each products}}
+				<div  id={{this.product._id}}>
+			          {{this.product.title}}
+					  {{this.product.category}}
+					 ${{this.product.price}}<sup>c/u</sup>
+					<div >Cod:
+					{{this.product.code}}</div>
+					</div>
+					</div>
+					<div >
+						
+					{{#each this.product.thumbnails}}
+						<div >
+						<img src="{{this}}" alt="" />
+						</div>
+					 {{else}}
+						<div >Sin imágenes</div>
+						{{/each}}
+					</div>
+				       {{this.quantity}}
+						Subtotal: ${{this.subTotal}}
+							</div>
+							<form
+						    id="delete-{{this.product._id}}">
+								<button
+									type="submit"
+									form="delete-{{this.product._id}}"
+									class="remove-products-btn btn"
+								>
+								</button>
+							</form>
+			{{else}}
+				<div >No hay productos en el carrito</div>
+			{{/each}}
+
+		</div>
+		<div >
+			<div > Total: </div>
+			<div > ${{totalPrice}} </div>
+		</div>
+	</div>
+</div>
+<script src="/js/cart.js"></script>
